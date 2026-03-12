@@ -1,27 +1,38 @@
-async function loadProducts(){
+async function loadProducts() {
   const res = await fetch("products.json");
   const products = await res.json();
-  display(products);
 
-  document.getElementById("search").addEventListener("input", e=>{
-    const q = e.target.value.toLowerCase();
-    const filtered = products.filter(p=>p.name.toLowerCase().includes(q));
-    display(filtered);
-  });
-}
-
-function display(products){
   const container = document.getElementById("products");
   container.innerHTML = "";
 
-  products.forEach(p=>{
+  products.forEach(product => {
+    const cheapest = Math.min(...product.prices.map(p => p.price));
+
+    let priceRows = "";
+
+    product.prices.forEach(p => {
+      const best = p.price === cheapest ? "⭐ Best Price" : "";
+
+      priceRows += `
+        <div class="price-row">
+          <span>${p.store}</span>
+          <span>$${p.price} ${best}</span>
+          <a href="${p.link}" target="_blank">Buy</a>
+        </div>
+      `;
+    });
+
     const card = document.createElement("div");
-    card.className="card";
+    card.className = "product-card";
+
     card.innerHTML = `
-      <h3>${p.name}</h3>
-      <div class="price">$${p.price}</div>
-      <a href="${p.link}" target="_blank">View Product</a>
+      <img src="${product.image}" class="product-image">
+      <h2>${product.name}</h2>
+      <div class="prices">
+        ${priceRows}
+      </div>
     `;
+
     container.appendChild(card);
   });
 }
