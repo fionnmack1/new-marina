@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Boat Anchor",
+    "price": 79,
+    "link": "https://example.com/anchor"
+  },
+  {
+    "name": "Fish Finder",
+    "price": 199,
+    "link": "https://example.com/fishfinder"
+  },
+  {
+    "name": "Marine Battery",
+    "price": 149,
+    "link": "https://example.com/battery"
+  },
+  {
+    "name": "Trolling Motor",
+    "price": 399,
+    "link": "https://example.com/motor"
+  }
+]

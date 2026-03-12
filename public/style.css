@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  background: #f2f6f9;
+}
+
+h1 {
+  text-align: center;
+}
+
+#search {
+  display:block;
+  margin:20px auto;
+  padding:10px;
+  width:300px;
+}
+
+#products {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.card {
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.price {
+  font-weight:bold;
+  margin-top:10px;
+}
