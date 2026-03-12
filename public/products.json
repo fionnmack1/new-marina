@@ -1,22 +1,19 @@
 [
   {
-    "name": "Boat Anchor",
-    "price": 79,
-    "link": "https://example.com/anchor"
+    "name": "Stainless Boat Anchor",
+    "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13",
+    "prices": [
+      { "store": "Amazon", "price": 89, "link": "#" },
+      { "store": "eBay", "price": 82, "link": "#" },
+      { "store": "WestMarine", "price": 105, "link": "#" }
+    ]
   },
   {
-    "name": "Fish Finder",
-    "price": 199,
-    "link": "https://example.com/fishfinder"
-  },
-  {
-    "name": "Marine Battery",
-    "price": 149,
-    "link": "https://example.com/battery"
-  },
-  {
-    "name": "Trolling Motor",
-    "price": 399,
-    "link": "https://example.com/motor"
+    "name": "Marine Battery 12V",
+    "image": "https://images.unsplash.com/photo-1609592806787-3d9bdaae6c8b",
+    "prices": [
+      { "store": "Amazon", "price": 120, "link": "#" },
+      { "store": "eBay", "price": 110, "link": "#" }
+    ]
   }
 ]
