@@ -1,40 +1,32 @@
-async function loadProducts() {
-  const res = await fetch("products.json");
-  const products = await res.json();
-
-  const container = document.getElementById("products");
-  container.innerHTML = "";
-
-  products.forEach(product => {
-    const cheapest = Math.min(...product.prices.map(p => p.price));
-
-    let priceRows = "";
-
-    product.prices.forEach(p => {
-      const best = p.price === cheapest ? "⭐ Best Price" : "";
-
-      priceRows += `
-        <div class="price-row">
-          <span>${p.store}</span>
-          <span>$${p.price} ${best}</span>
-          <a href="${p.link}" target="_blank">Buy</a>
-        </div>
-      `;
+function sortByPrice(products) {
+    return products.sort((a, b) => {
+        const minA = Math.min(...Object.values(a.prices));
+        const minB = Math.min(...Object.values(b.prices));
+        return minA - minB;
     });
-
-    const card = document.createElement("div");
-    card.className = "product-card";
-
-    card.innerHTML = `
-      <img src="${product.image}" class="product-image">
-      <h2>${product.name}</h2>
-      <div class="prices">
-        ${priceRows}
-      </div>
-    `;
-
-    container.appendChild(card);
-  });
 }
 
-loadProducts();
+async function displayProducts() {
+    const response = await fetch('products.json');
+    const products = await response.json();
+    const sortedProducts = sortByPrice(products);
+    const productList = document.getElementById('product-list');
+
+    sortedProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+            <div class="product-name">${product.name}</div>
+            <div class="price-list">
+                ${Object.entries(product.prices).map(([store, price]) =>
+                    `<div>${store}: $${price}${price === Math.min(...Object.values(product.prices)) ? ' <span class="best-price">(Best Price)</span>' : ''}</div>`
+                ).join('')}
+            </div>
+            <button onclick="window.open('${product.link}', '_blank')">Buy Now</button>
+        `;
+        productList.appendChild(productCard);
+    });
+}
+
+displayProducts();
+
