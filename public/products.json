@@ -1,19 +1,21 @@
 [
-  {
-    "name": "Stainless Boat Anchor",
-    "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13",
-    "prices": [
-      { "store": "Amazon", "price": 89, "link": "#" },
-      { "store": "eBay", "price": 82, "link": "#" },
-      { "store": "WestMarine", "price": 105, "link": "#" }
-    ]
-  },
-  {
-    "name": "Marine Battery 12V",
-    "image": "https://images.unsplash.com/photo-1609592806787-3d9bdaae6c8b",
-    "prices": [
-      { "store": "Amazon", "price": 120, "link": "#" },
-      { "store": "eBay", "price": 110, "link": "#" }
-    ]
-  }
+ [
+    {
+        "name": "Example Anchor",
+        "prices": {
+            "Amazon": 25.99,
+            "eBay": 22.49,
+            "West Marine": 29.99
+        },
+        "link": "https://www.example.com/example-anchor"
+    },
+    {
+        "name": "Quality Battery",
+        "prices": {
+            "Amazon": 89.99,
+            "eBay": 85.50,
+            "West Marine": 92.00
+        },
+        "link": "https://www.example.com/quality-battery"
+    }
 ]
